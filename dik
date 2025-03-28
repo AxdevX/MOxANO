@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Google Search</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2em;
+      background: #f5f5f5;
+    }
+    input, button {
+      padding: 0.5em;
+      font-size: 1em;
+      margin-top: 1em;
+      display: block;
+      width: 100%;
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Google Search via Browser</h1>
+  <form id="searchForm">
+    <label>
+      Search Query:
+      <input type="text" id="searchQuery" placeholder="Type something..." required />
+    </label>
+    <button type="submit">Search Google</button>
+  </form>
+
+  <script>
+    document.getElementById('searchForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const query = document.getElementById('searchQuery').value;
+      const encodedQuery = encodeURIComponent(query);
+      window.open(`https://www.google.com/search?q=${encodedQuery}`, '_blank');
+    });
+  </script>
+</body>
+</html>
